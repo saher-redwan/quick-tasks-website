@@ -1,7 +1,6 @@
-'use client'
+"use client"
 
-import React, { useEffect, useState } from 'react'
-import SingleTask from './SingleTask'
+import SingleTask from "./SingleTask"
 
 export default function Tasks({ tasks, setTasks }) {
 
