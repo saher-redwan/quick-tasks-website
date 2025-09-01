@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddTasks from "./components/AddTasks";
 import Evaluation from "./components/Evaluation";
 import Tasks from "./components/Tasks";
@@ -8,6 +8,12 @@ import Tasks from "./components/Tasks";
 export default function Home() {
 
   const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      document.getElementById("welcome-item").classList.add("show");
+    }, 2000);
+  }, [])
 
   return (
     <main>
@@ -26,6 +32,11 @@ export default function Home() {
         </div>
 
       </div>
+
+
+      {/* welcome message */}
+      <div id="welcome-item" className="nice-message">🚀 Welcome to the world of tasks!</div>
+
     </main>
   );
 }

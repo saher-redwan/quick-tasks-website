@@ -549,3 +549,84 @@ main {
     background-position: 100% 50%;
   }
 }
+
+
+/* for welcome message */
+.nice-message {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8) rotateX(20deg);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  padding: 22px 35px;
+  border-radius: 20px;
+  font-size: 1.185rem;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+  letter-spacing: 1px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  z-index: 9999;
+  display: none;
+}
+
+.nice-message.show {
+  display: block;
+  animation: popupFadeIn 3.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards,
+    popupFadeOut 2.5s ease forwards 3s,
+    pulseBorder 1.65s ease-out 3;
+}
+
+@keyframes popupFadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5) rotateX(45deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05) rotateX(0deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotateX(0deg);
+  }
+}
+
+@keyframes popupFadeOut {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+}
+
+@keyframes pulseBorder {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7),
+      0 0 30px rgba(0, 255, 255, 0.6);
+  }
+
+  50% {
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0),
+      0 0 40px rgba(0, 200, 255, 0.9);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0),
+      0 0 20px rgba(0, 255, 255, 0);
+  }
+}
