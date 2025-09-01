@@ -1,27 +1,24 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SingleTask from './SingleTask'
 
-export default function Tasks() {
-
-    const [tasks, setTasks] = useState([...Array(0)]);
-
+export default function Tasks({ tasks, setTasks }) {
 
     return (
         <div className='mt-8'>
-
-            {tasks.map((_, index) => {
-                return <SingleTask key={index} />
-            })}
+            {
+                tasks?.sort((a, b) => b.time - a.time)?.map((task) => {
+                    return <SingleTask key={task.time} task={task} setTasks={setTasks} />
+                })
+            }
 
             {
-                tasks.length == 0 &&
-                <div className='text-center'>
+                tasks?.length == 0 &&
+                <div className='text-center' style={{ animation: "scale-line 2s" }}>
                     No Tasks Yet!
                 </div>
             }
-
         </div>
     )
 }

@@ -222,7 +222,6 @@ main {
     margin-bottom: 2rem;
   }
 
-
 }
 
 .custom-item {
@@ -338,7 +337,6 @@ main {
     padding: 3.5px;
   }
 
-
   button {
 
     &.delete-btn svg {
@@ -361,19 +359,23 @@ main {
 }
 
 .single-task {
+
+  animation: scale-animation 1s;
+
   svg {
     opacity: 0.685;
   }
 
-
   &:hover {
+    box-shadow: 0 0 15px #00000022, 0 0 2.5px #00000019;
+
     svg {
       opacity: 1;
     }
   }
 }
 
-.single-task:has(input:checked) {
+.single-task.checked {
   .task-text {
     text-decoration: line-through #000000a6 1px;
     color: #00000094;
@@ -400,4 +402,150 @@ main {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #a1a1a1;
+}
+
+
+
+/* Custom Animations */
+@keyframes scale-animation {
+  0% {
+    transform: scaleY(0) skewY(10deg);
+  }
+}
+
+@keyframes scale-line {
+  0% {
+    scale: 1;
+  }
+
+  50% {
+    scale: 1.15;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+
+
+
+/* CUSTOM MODAL */
+.custom-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+  margin-top: -430px;
+  transition: all 0.3s, background-color 0.9s, backdrop-filter 0.9s;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0000001a;
+  backdrop-filter: blur(1.35px);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.custom-modal.open {
+  visibility: visible;
+  opacity: 1;
+  margin-top: 0;
+  pointer-events: unset;
+}
+
+.custom-modal .content-modal {
+  position: relative;
+  background-color: #eee;
+  padding: 40px 25px;
+  border: 1px solid var(--border-light-color);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  visibility: hidden;
+  opacity: 0.35;
+  margin-top: -65px;
+  transition: 0.7s;
+  overflow: hidden;
+  width: 492px;
+  max-height: 91.5vh;
+  max-width: 95vw;
+  border-radius: 12px;
+}
+
+.custom-modal .content-modal.open {
+  visibility: visible;
+  opacity: 1;
+  margin-top: 0;
+}
+
+.custom-modal {
+  button.close-modal {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+      width: 18px;
+      height: 2.5px;
+      background-color: #000;
+      z-index: 10;
+      border-radius: 2px;
+    }
+
+    &::before {
+      rotate: 45deg;
+      top: calc(50% + 3.55px);
+    }
+
+    &::after {
+      rotate: 125deg;
+      width: 20;
+    }
+
+    span {
+      position: absolute;
+      left: 50%;
+      top: calc(50% + 3px);
+      transform: translate(-50%, -50%);
+      width: calc(100% + 9.5px);
+      height: calc(100% + 9.5px);
+      border-radius: 2.5px;
+    }
+  }
+}
+
+
+
+
+/* for animated bg text */
+
+.masked-text {
+  font-size: 8rem;
+  font-weight: bold;
+  color: transparent;
+  background-image: url('/images_bg_for_text.jpg');
+  background-size: 280%;
+  /* Enlarged for smooth animation */
+  background-position: 0 50%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animate-background 15s infinite alternate linear;
+}
+
+@keyframes animate-background {
+  0% {
+    background-position: 0 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
 }
