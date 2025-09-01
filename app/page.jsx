@@ -10,6 +10,25 @@ export default function Home() {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
+    const storedTasks = localStorage.getItem("myTasks");
+
+    if (storedTasks) {
+      try {
+        const parsedTasks = JSON.parse(storedTasks);
+        if (Array.isArray(parsedTasks)) {
+          setTasks(parsedTasks);
+        }
+      } catch (error) {
+        console.error("localStorage err", error);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("myTasks", JSON.stringify(tasks));
+  }, [tasks])
+
+  useEffect(() => {
     setTimeout(() => {
       document.getElementById("welcome-item").classList.add("show");
     }, 2000);
