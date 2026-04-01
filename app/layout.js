@@ -13,6 +13,8 @@ export default function RootLayout({ children }) {
           {`
            @import url("https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap");
           @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"); 
+          @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap');
           `}
         </style>
       </head>

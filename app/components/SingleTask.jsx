@@ -5,7 +5,7 @@ import EditSvg from '../svgs/EditSvg'
 import EditTaskModal from './EditTaskModal'
 import DeleteTaskModal from './DeleteTaskModal'
 
-export default function SingleTask({ task, setTasks }) {
+export default function SingleTask({ task, setTasks, setIsTasksStatusChanged }) {
     const [openEdit, setOpenEdit] = useState();
 
     function toggleEditModal() {
@@ -23,7 +23,7 @@ export default function SingleTask({ task, setTasks }) {
             <div className={`single-task ${task?.checked ? "checked" : ""} flex justify-between gap-4 mb-4 bg-[#ffffff23] py-[3.5px] px-3 rounded-4xl`}>
                 {/* first part */}
                 <div className='flex justify-center items-center w-full'>
-                    <ChechBoxStyle setTasks={setTasks} checked={task.checked} value={task?.text} task={task} />
+                    <ChechBoxStyle setTasks={setTasks} checked={task.checked} value={task?.text} task={task} setIsTasksStatusChanged={setIsTasksStatusChanged}/>
                 </div>
 
                 {/* second part - tools */}

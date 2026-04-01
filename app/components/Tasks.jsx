@@ -2,13 +2,13 @@
 
 import SingleTask from "./SingleTask"
 
-export default function Tasks({ tasks, setTasks }) {
+export default function Tasks({ tasks, setTasks, setIsTasksStatusChanged }) {
 
     return (
         <div className='mt-8'>
             {
                 tasks?.sort((a, b) => b.time - a.time)?.map((task) => {
-                    return <SingleTask key={task.time} task={task} setTasks={setTasks} />
+                    return <SingleTask key={task.time} task={task} setTasks={setTasks} setIsTasksStatusChanged={setIsTasksStatusChanged} />
                 })
             }
 

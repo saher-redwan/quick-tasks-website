@@ -20,8 +20,8 @@ export default function DeleteTaskModal({ open, toggleModal, setTasks, task }) {
     return (
         <Modal open={open} toggleModal={toggleModal}>
 
-            <div className='mt-2.5'>
-                Are you sure you want to delete the task: &quot;{task.text.length > 8 ? task.text.slice(0, 8) + "..." : task.text}&quot;
+            <div className='mt-2.5 font-[700] [text-shadow:0_0_30px_#fff]'>
+                Are you sure you want to delete the task: &quot;<u>{task.text.length > 8 ? task.text.slice(0, 8) + "..." : task.text}</u>&quot;
             </div>
 
             <div className='mt-3 flex justify-end gap-2'>

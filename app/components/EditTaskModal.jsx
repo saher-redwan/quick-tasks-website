@@ -27,7 +27,7 @@ export default function EditTaskModal({ open, toggleModal, setTasks, task }) {
     return (
         <Modal open={open} toggleModal={toggleModal}>
 
-            <div className='mt-2.5'>
+            <div className='mt-2.5 font-[700] [text-shadow:0_0_30px_#fff]'>
                 You Can Edit The Task:
             </div>
             <form onSubmit={editTask}>

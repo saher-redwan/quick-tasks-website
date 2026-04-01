@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-export default function ChechBoxStyle({ value, checked, setTasks, task }) {
+export default function ChechBoxStyle({ value, checked, setTasks, task, setIsTasksStatusChanged }) {
 
     const [randomId, setRandomId] = useState();
 
@@ -12,6 +12,7 @@ export default function ChechBoxStyle({ value, checked, setTasks, task }) {
 
     function onChangeAction(e) {
         setIsChecked(e.target.checked)
+        setIsTasksStatusChanged(true)
 
         setTasks((prev) => {
             return prev.map(_task => {
